@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+
+<html lang="fr">
+
+<head>
+
+  <meta charset="utf-8" />
+
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+
+  <title>Hyperpop Discovery</title>
+
+<link rel="stylesheet" href="/static/style.css" />
+
+</head>
+
+<body>
+
+  <div id="circles"></div>
+
+  <header class="site-header">
+
+    <div class="brand">
+
+      <h1>✨ Groupie Tracker</h1>
+
+      <p class="tagline">Découvre des artistes — mets-les en favoris, cherche, explore.</p>
+
+    </div>
+
+<div id="effects" ></div>
+
+    <nav class="genre-nav">
+
+      <button class="genre-btn active" data-filter="all">tout</button>
+
+      <button class="genre-btn" data-filter="solo">Solo</button>
+
+      <button class="genre-btn" data-filter="duo">Duo</button>
+
+      <button class="genre-btn" data-filter="trio">Trio</button>
+
+      <button class="genre-btn" data-filter="groupe">Quatuor ou plus</button>
+
+    </nav>
+
+
+
+    <div class="controls">
+
+      <input id="searchBar" type="search" placeholder="Rechercher un artiste..." />
+
+      <button id="openRequest" class="small-btn">Ajouter un artiste</button>
+
+      <a id="favoritesLink" class="small-btn">Favoris (<span id="favCount">0</span>)</a>
+
+      <a href="#admin" id="adminLink" class="small-btn">Admin</a>
+
+    </div>
+
+  </header>
+
+
+
+  <!-- Sidebar réseaux -->
+
+  <aside id="socialBar" class="social-bar">
+
+    <a href="#" target="_blank">Instagram</a>
+
+    <a href="#" target="_blank">TikTok</a>
+
+    <a href="mailto:tonmail@example.com">Mail</a>
+
+  </aside>
+
+
+
+  <main id="main">
+
+    <section id="artists" class="artists-grid">
+
+    </section>
+
+  </main>
+
+
+
+  <footer class="site-footer">  
+
+  </footer>
+
+
+
+  <div id="detailModal" class="modal hidden">
+
+    <div class="modal-content detail-modal-content">
+
+      <button class="close" id="closeDetail">x</button>
+
+
+
+      <div class="detail-header">
+
+        <img id="detail-img" src="" alt="" />
+
+        <div>
+
+          <h2 id="detail-name"></h2>
+
+          <p id="detail-sub" style="color: rgba(255, 255, 255,0.6);font-size:13px"></p>
+
+        </div>
+
+    </div>
+
+
+
+    <div class="detail-tabs">
+
+      <button class="tab-btn active" data-tab="all">Tout</button>
+
+      <button class="tab-btn" data-tab="artist">Artists</button>
+
+      <button class="tab-btn" data-tab="dates">Dates</button>
+
+      <button class="tab-btn" data-tab="locations">Lieux</button>
+
+    </div>
+
+    <div id="detail-body"></div>
+
+  </div>
+
+</div>
+
+
+
+  <!-- Modal : Formulaire de demande artiste -->
+
+  <div id="requestModal" class="modal hidden">
+
+    <div class="modal-content">
+
+      <button class="close" id="closeRequest">✕</button>
+
+      <h2>Proposer un artiste</h2>
+
+      <form id="artistRequestForm">
+
+        <input required type="text" id="rq-name" placeholder="Nom de l'artiste" />
+
+        <input required type="url" id="rq-link" placeholder="Lien (Spotify / Soundcloud...)" />
+
+        <input type="text" id="rq-img" placeholder="Lien de l'image" />
+
+        <select id="rq-genre">
+
+          <option value="solo">Solo</option>
+
+          <option value="duo">Duo</option>
+
+          <option value="trio">Trio</option>
+
+          <option value="groupe">Quatuor</option>
+
+          <option value="other">Autre</option>
+
+        </select>
+
+        <textarea id="rq-note" placeholder="Un petit mot (optionnel)"></textarea>
+
+        <button type="submit" class="primary-btn">Envoyer la demande</button>
+
+      </form>
+
+    </div>
+
+  </div>
+
+
+
+  <!-- Admin (page simple via hash #admin) -->
+
+  <div id="adminPanel" class="admin-panel hidden">
+
+    <div class="admin-inner">
+
+      <button id="closeAdmin" class="close">✕</button>
+
+      <h2>Admin - Demandes artistes</h2>
+
+      <div id="requestsList"></div>
+
+      <h3>Artistes en base</h3>
+
+      <div id="artistsAdmin"></div>
+
+    </div>
+
+  </div>
+
+<script src="/static/script.js"></script>
+
+</body>
+
+</html>  
